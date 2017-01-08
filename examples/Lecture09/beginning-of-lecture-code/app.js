@@ -8,4 +8,9 @@ function DIController ($scope) {
   $scope.name = "Yaakov";
 }
 
+function AnnonateMe (name, job, blah) {
+  return "Blah";
+}
+
+console.log.(AnnonateMe())
 })();
