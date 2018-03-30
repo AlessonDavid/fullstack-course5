@@ -24,7 +24,7 @@ function MenuCategoriesController(MenuCategoriesService) {
     var promise = MenuCategoriesService.getMenuForCategory(shortName);
 
     promise.then(function (response) {
-      console.log(response.data);
+      console.log(response);
     })
     .catch(function (error) {
       console.log(error);

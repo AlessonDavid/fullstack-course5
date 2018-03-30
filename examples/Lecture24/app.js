@@ -52,7 +52,6 @@ function ShoppingListService($q, WeightLossFilterService) {
   //   });
   // };
 
-
   // service.addItem = function (name, quantity) {
   //   var promise = WeightLossFilterService.checkName(name);
   //
@@ -77,8 +76,8 @@ function ShoppingListService($q, WeightLossFilterService) {
     var namePromise = WeightLossFilterService.checkName(name);
     var quantityPromise = WeightLossFilterService.checkQuantity(quantity);
 
-    $q.all([namePromise, quantityPromise]).
-    then(function (response) {
+    $q.all([namePromise, quantityPromise])
+    .then(function (response) {
       var item = {
         name: name,
         quantity: quantity
@@ -97,7 +96,7 @@ function ShoppingListService($q, WeightLossFilterService) {
   service.getItems = function () {
     return items;
   };
-}
+} // end of ShoppingListService
 
 
 WeightLossFilterService.$inject = ['$q', '$timeout'];
@@ -123,11 +122,12 @@ function WeightLossFilterService($q, $timeout) {
     }, 3000);
 
     return deferred.promise;
-  };
+  }; // end of checkName service
 
 
   service.checkQuantity = function (quantity) {
     var deferred = $q.defer();
+
     var result = {
       message: ""
     };
@@ -145,6 +145,7 @@ function WeightLossFilterService($q, $timeout) {
 
     return deferred.promise;
   };
-}
+
+} // end of WeightLossFilterService
 
 })();
