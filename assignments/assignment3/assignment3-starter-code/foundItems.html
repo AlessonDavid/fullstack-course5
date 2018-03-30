@@ -1,0 +1,15 @@
+<br>
+<br>
+
+<div ng-if="!ctrl.empty">
+  <ol>
+    <ul ng-repeat="item in ctrl.found">
+      <br>
+      {{item.name}} <br>
+      {{item.description}} <br>
+      <button ng-click="ctrl.onRemove({index: $index});">Don't want this one! </button>
+    </ul>
+  </ol>
+</div>
+
+<div ng-if="ctrl.empty"><br>Nothing Found</div>
