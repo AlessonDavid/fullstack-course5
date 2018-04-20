@@ -4,38 +4,17 @@
 angular.module('MenuApp')
 .controller('ItemsController', ItemsController);
 
-ItemsController.$inject = ['MenuDataService', 'shortName'];
-function ItemsController(MenuDataService, shortName) {
-  var menu = this;
 
-  var promise = MenuDataService.getItemsForCategory(shortName);
+ItemsController.$inject = ['MenuDataService', 'menuItems'];
+function ItemsController(MenuDataService, menuItems) {
+  var itemsCtrl = this;
 
-  promise.then(function (response) {
-    menu.items = response.data;
-  })
-  .catch(function (error) {
-    console.log("Something went terribly wrong.");
-  });
-
-  // menu.logMenuItems = function (shortName) {
-  //   var promise = MenuDataService.getItemsForCategory(shortName);
-  //
-  //   promise.then(function (response) {
-  //     console.log(response);
-  //     menu.items = response.data;
-  //   })
-  //   .catch(function (error) {
-  //     console.log(error);
-  //   })
-  // };
+  itemsCtrl.list = menuItems.menu_items;
+  itemsCtrl.name = menuItems.category.name;
+  console.log("menuItems" ,menuItems)
+  console.log("itemCtrl.name" ,itemsCtrl.name)
+  console.log("itemCtrl.list" ,itemsCtrl.list)
 
 }
-
-
-// CategoriesController.$inject = ['MenuDataService', 'items'];
-// function CategoriesController(MenuDataService, items) {
-//   var categories = this;
-//   categories.items = items;
-// }
 
 })();

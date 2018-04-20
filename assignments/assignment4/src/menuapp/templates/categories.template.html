@@ -1,10 +1,4 @@
-<div ng-controller='CategoriesController as categoriesCtrl'>
-  <a ui-sref="home">Home</a>
+<a ui-sref="home">Home</a> &lt; <span>Categories</span>
 
-  <h3>List of Menu Categories</h3>
-  <ul>
-    <li ng-repeat="category in categoriesCtrl.categories">
-      <a ui-sref="items">{{category.name}}</a>
-    </li>
-  </ul>
-</div>
+<h3>List of Categories</h3>
+<categories-list categories="categoriesCtrl.categoryname"></categories-list>
